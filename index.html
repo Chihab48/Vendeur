@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxDoré - Download</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        :root {
+            --primary-color: #1a73e8;
+            --bg-color: #ffffff;
+        }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; background-color: #f8f9fa; color: #333; }
+
+        /* 1. Appbar التصميم */
+        .appbar {
+            background: white;
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            justify-content: center;
+        }
+        .logo-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #eee; /* مكان الأيقونة لاحقاً */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border: 2px solid ;
+        }
+        .logo-circle img { width: 100%; height: 100%; object-fit: cover;border-radius: 50%; }
+        .app-name { font-weight: bold; font-size: 2.5rem;display: flex; align-items:center;justify-content: center; color: black; }
+
+        /* 2. قسم التحميل (Header) */
+        .download-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 25px;
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 15px;
+            gap:20px;
+        }
+            
+        .app-info-left { display: flex; align-items: center; }
+        .app-icon-main {
+            width: 80px;
+            height: 80px;
+            border-radius: 18px;
+            background: #ddd;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .install-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 35px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+            text-align: center;
+            white-space: nowrap;
+        }
+        .install-btn:hover { background-color: #1557b0; }
+
+        /* 3. السلايدر (Screenshots) */
+        .screenshots-container { max-width: 800px; margin: 40px auto; padding-bottom: 50px; }
+        .swiper { width: 100%; padding: 20px 0; }
+        .swiper-slide {
+            width: 200px; /* عرض شاشة الهاتف في السلايدر */
+            height: 400px;
+            background: #eee;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border: 4px solid #333; /* إطار يشبه الهاتف */
+        }
+        .swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
+        
+        h2 { text-align: center; font-size: 1.1rem; color: #666; }
+
+        @media (max-width: 600px) {
+    .download-section {
+        flex-direction: column-reverse; /* Button moves to the bottom on mobile */
+        text-align: center;
+    }
+
+    .app-info-left {
+        flex-direction: column-reverse; /* Icon on top of text for better mobile look */
+        gap: 10px;
+    }
+
+    .app-info-left div {
+        margin-left: 0 !important; /* Remove the left margin on mobile */
+    }
+
+    .install-btn {
+        width: 100%; /* Button takes full width on phones */
+        box-sizing: border-box;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <div class="appbar">
+        <div class="app-name">LuxDoré</div>
+        <div class="logo-circle">
+            <img src="newluxicon.png" alt="Logo">
+        </div>
+    </div>
+
+    <div class="download-section">
+        <a href="https://github.com/Chihab48/LuxDore/releases/download/v1.0.0/app-release.apk" class="install-btn">تثبيت / Installer</a>
+        <div class="app-info-left">
+            <div style = "margin-left : 15px;">
+                <div style="font-weight: bold; font-size: 1.4rem;">LuxDoré</div>
+                <div style="color: #666; font-size: 0.9rem;">إصدار 1.0.0</div>
+            </div>
+            <div class="app-icon-main">
+                <img src="newluxicon.png" style="width:100%; border-radius:18px;">
+            </div>    
+        </div>
+        
+    </div>
+
+
+    <div class="screenshots-container">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="about.jpg"></div>
+                <div class="swiper-slide"><img src="offer.jpg"></div>
+                <div class="swiper-slide"><img src="pro.jpg"></div>
+                <div class="swiper-slide"><img src="products.jpg"></div>
+                <div class="swiper-slide"><img src="profile1.jpg"></div>
+                <div class="swiper-slide"><img src="profile2.jpg"></div>
+                <div class="swiper-slide"><img src="profile3.jpg"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // --- Keep your existing Swiper code ---
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: "auto",
+            spaceBetween: 20,
+            centeredSlides: true,
+            initialSlide: 2,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+
+        // --- ADD THE NEW CODE HERE ---
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            // Wait 2 seconds (time for download to start), then show instructions
+            setTimeout(() => {
+                alert("التحميل بدأ! بمجرد الانتهاء، اضغط على الملف في شريط التنبيهات وافتح 'تثبيت'.\n\nLe téléchargement a commencé ! Une fois terminé, cliquez sur le fichier dans la barre de notification.");
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
